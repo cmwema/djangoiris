@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Iris Prediction{% endblock title %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="flex flex-col h-screen justify-between">
+{% if user.is_authenticated %}
+<header class="bg-gray-900 text-white py-4">
+    <div class="container mx-auto flex justify-between items-center px-4">
+        <div class="flex justify-between w-full">
+            <p class="text-lg">Hi {{ user.email }}!</p>
+            <form action="{% url 'logout' %}" method="post" class="inline">
+                {% csrf_token %}
+                <button type="submit" class="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-md">Log Out</button>
+            </form>
+        </div>
+    </div>
+</header>
+{% endif %}
+<main class="flex-grow flex flex-col items-center justify-center">
+    {% block content %}
+    {% endblock content %}
+</main>
+</body>
+</html>

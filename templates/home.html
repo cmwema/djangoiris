@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock title %}
+{% block content %}
+<div class="container mx-auto mt-8 text-center">
+    <h1 class="text-2xl font-bold">Iris Classification</h1>
+    <form method="post" action="{% url 'result' %}" class="mt-8">
+        {% csrf_token %}
+        <label for="sepal_length" class="block text-gray-700 font-bold mb-2">Sepal Length:</label>
+        <input required type="number" id="sepal_length" name="sepal_length" placeholder="Enter Sepal Length" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-400 mb-4">
+
+        <label for="sepal_width" class="block text-gray-700 font-bold mb-2">Sepal Width:</label>
+        <input required type="number" id="sepal_width" name="sepal_width" placeholder="Enter Sepal Width" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-400 mb-4">
+
+        <label for="petal_length" class="block text-gray-700 font-bold mb-2">Petal Length:</label>
+        <input required type="number" id="petal_length" name="petal_length" placeholder="Enter Petal Length" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-400 mb-4">
+
+        <label for="petal_width" class="block text-gray-700 font-bold mb-2">Petal Width:</label>
+        <input required type="number" id="petal_width" name="petal_width" placeholder="Enter Petal Width" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-400 mb-4">
+
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Classify</button>
+    </form>
+</div>
+{% endblock content %}
